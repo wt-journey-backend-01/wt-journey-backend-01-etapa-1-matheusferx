@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Contato - DevBurger</title>
+  <link rel="stylesheet" href="/contato.css">
+</head>
+<body>
+  <header>
+    <h1>DevBurger</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Início</a></li>
+        <li><a href="/api/lanches">Ver API de lanches</a></li>
+
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container-contato">
+    <h1>Contato</h1>
+
+    <form action="/contato" method="POST">
+      <input type="text" id="nome" name="nome" placeholder="Digite seu nome aqui..." required>
+      <input type="email" id="email" name="email" placeholder="Digite seu email aqui..." required>
+      <input type="text" id="assunto" name="assunto" placeholder="Digite o assunto aqui..." required>
+      <textarea id="mensagem" name="mensagem" rows="5" placeholder="Digite sua mensagem aqui..." required></textarea>
+
+      <div class="buttons">
+        <button type="submit">Enviar</button>
+        <button type="button" onclick="window.location.href='/'">Voltar para a página inicial</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

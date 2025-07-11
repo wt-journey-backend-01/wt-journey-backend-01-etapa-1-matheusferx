@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+header .container-header {
+    width: 100%;
+    height: 80px;
+    background-color: #ff7300af;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+header .container-header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header .container-header nav a {
+    color: white;
+    text-decoration: none;
+    transition: transform 0.5s;
+    font-size: 17px;
+}
+
+header .container-header nav a:hover {
+    color: #eeeeee;
+}
+
+section .container-cardapio {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section .container-cardapio h2 {
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: #ffa053;
+}
+
+section .container-cardapio ul {
+    width: 30%;
+    list-style: none;
+    background-color: #ffa053da;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+section .container-cardapio ul li {
+    background-color: #ffffff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+}
+
+section .container-cardapio ul li:hover {
+    background-color: #eeeeee98;
+}
+
+section .container-sugestao {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section .container-sugestao h2 {
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: #ffa053;
+}
+
+section .container-sugestao form {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+section .container-sugestao form input,
+section .container-sugestao form textarea {
+    margin-bottom: 20px;
+    resize: none;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    outline: none;
+    box-shadow: none;
+}
+
+form button {
+    background-color: #ffa053;
+    max-width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+form button:hover {
+    transform: scale(1.1);
+}  
