@@ -151,10 +151,10 @@ section.contato-enviado {
     margin-top: 0.5rem; 
 }
 
-.container_contato-enviado button {
+.container_contato-enviado a {
     background-color: #ff7300af;
     margin-top: 20px;
-    max-width: 40%;
+    max-width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,9 +163,10 @@ section.contato-enviado {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
     transition: transform 0.5s;
 }
 
-.container_contato-enviado button:hover {
+.container_contato-enviado a:hover {
     transform: scale(1.1);
 }

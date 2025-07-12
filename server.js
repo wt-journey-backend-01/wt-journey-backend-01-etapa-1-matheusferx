@@ -8,33 +8,33 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public', 'css')));
 
 app.get('/', (req, res) => {
-    const htmlPath = path.join(__dirname, 'views', 'index.html');
-    const jsonPath = path.join(__dirname, 'public', 'data', 'lanches.json');
+  const htmlPath = path.join(__dirname, 'views', 'index.html');
+  const jsonPath = path.join(__dirname, 'public', 'data', 'lanches.json');
 
-    const html = fs.readFileSync(htmlPath, 'utf-8');
-    const lanches = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
+  const html = fs.readFileSync(htmlPath, 'utf-8');
+  const lanches = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
 
-    const listaLanches = lanches.map(lanche => `
-      <li onclick="toggleIngredientes(${lanche.id})">
-        <p>${lanche.nome}</p>
-        <p id="ingredientes-${lanche.id}" style="display: none; margin: 20px;">
-          ${lanche.ingredientes}
-        </p>
-      </li>
-    `).join('\n');
-    const htmlFinal = html.replace('<!-- LANCHES -->', listaLanches);
+  const listaLanches = lanches.map(lanche => `
+    <li onclick="toggleIngredientes(${lanche.id})">
+      <p>${lanche.nome}</p>
+      <p id="ingredientes-${lanche.id}" style="display: none; margin: 20px;">
+        ${lanche.ingredientes}
+      </p>
+    </li>
+  `).join('\n');
+  const htmlFinal = html.replace('<!-- LANCHES -->', listaLanches);
 
-    res.send(htmlFinal);
+  res.status(200).send(htmlFinal);
 });
 
 app.get('/contato', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'contato.html'));
+  res.status(200).sendFile(path.join(__dirname, 'views', 'contato.html'));
 });
 
 app.post('/contato', (req, res) => {
-    const { nome, email, assunto, mensagem } = req.body;
+  const { nome, email, assunto, mensagem } = req.body;
 
-  res.send(`
+  res.status(200).send(`
     <html>
       <head>
         <title>Contato Recebido</title>
@@ -47,7 +47,7 @@ app.post('/contato', (req, res) => {
             <p>Email: ${email}</p>
             <p>Assunto: ${assunto}</p>
             <p>Mensagem: ${mensagem}</p>
-            <button type="button" onclick="window.location.href='/'">Voltar para a página inicial</button>
+            <a href="/">Voltar para a página inicial</a>
           </div>
         </section>
       </body>
@@ -56,7 +56,24 @@ app.post('/contato', (req, res) => {
 });
 
 app.get('/sugestao', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'sugestao.html'));
+  const { nome, ingredientes } = req.query;
+  res.status(200).send(`
+    <html>
+      <head>
+        <title>Sugestão Recebida</title>
+        <link rel="stylesheet" href="/sugestao.css">
+      </head>
+      <body>
+        <section class="sugestao-enviada">
+          <div class="container_sugestao-enviada">
+            <h1>Obrigado pela sugestão, ${nome}!</h1>
+            <p>Ingredientes sugeridos: ${ingredientes}</p>
+            <a href="/">Voltar para a página inicial</a>
+          </div>
+        </section>
+      </body>
+    </html>
+  `);
 });
 
 app.get('/api/lanches', (req, res) => {
@@ -75,5 +92,5 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

@@ -45,10 +45,10 @@ section .container_sugestao-enviada p + p {
     margin-top: 0.5rem; 
 }
 
-.container_sugestao-enviada button {
+.container_sugestao-enviada a {
     background-color: #ff7300af;
     margin-top: 20px;
-    max-width: 40%;
+    max-width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,8 +58,9 @@ section .container_sugestao-enviada p + p {
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.5s;
+    text-decoration: none;
 }
 
-.container_sugestao-enviada button:hover {
+.container_sugestao-enviada a:hover {
     transform: scale(1.1);
 }
